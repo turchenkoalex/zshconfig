@@ -11,7 +11,7 @@ alias l=ll
 alias sl=ls
 
 # Editor
-if [ -e $EDITOR ]; then
+if [[ "$EDITOR" != "" ]]; then
 	alias ee=$EDITOR
 	alias ee.="ee ."
 fi
