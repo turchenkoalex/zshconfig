@@ -1,8 +1,12 @@
 # Path
-[[ "$ZSHCONFIG" == "" ]] && ZSHCONFIG=$HOME/.zshconfig
+[[ ! -d $ZSHCONFIG ]] && ZSHCONFIG=$HOME/.zshconfig
 [[ ! -d $ZSHCONFIG_DATA ]] && ZSHCONFIG_DATA=$ZSHCONFIG/work
 [[ ! -d $ZSHCONFIG_LIB ]] && ZSHCONFIG_LIB=$ZSHCONFIG/lib
 [[ ! -d $ZSHCONFIG_PLUGINS ]] && ZSHCONFIG_PLUGINS=$ZSHCONFIG/plugins
+
+if [ -f $ZSHCONFIG/update.zsh ]; then
+	source $ZSHCONFIG/update.zsh
+fi
 
 loaded_libraries=()
 
