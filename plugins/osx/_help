@@ -1,0 +1,5 @@
+#compdef help
+#autoload
+
+_man
+
