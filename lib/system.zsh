@@ -1,14 +1,13 @@
 # Get system
-system=`uname`
 
 function is_osx() {
-	[[ $system == "Darwin" ]]
+	[[ `uname` == "Darwin" ]]
 }
 
 is_freebsd() {
-	[[ $system == "FreeBSD" ]]
+	[[ `uname` == "FreeBSD" ]]
 }
 
 function is_linux() {
-	[[ $system == "Linux" ]]
+	[[ `uname` == "Linux" ]]
 }

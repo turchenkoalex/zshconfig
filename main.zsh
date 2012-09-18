@@ -1,5 +1,5 @@
 # Path
-[[ ! -d $ZSHCONFIG ]] && ZSHCONFIG=$HOME/.zshconfig
+[[ "$ZSHCONFIG" == "" ]] && ZSHCONFIG=$HOME/.zshconfig
 [[ ! -d $ZSHCONFIG_DATA ]] && ZSHCONFIG_DATA=$ZSHCONFIG/work
 [[ ! -d $ZSHCONFIG_LIB ]] && ZSHCONFIG_LIB=$ZSHCONFIG/lib
 [[ ! -d $ZSHCONFIG_PLUGINS ]] && ZSHCONFIG_PLUGINS=$ZSHCONFIG/plugins
@@ -32,7 +32,6 @@ compinit -i -d $ZSHCONFIG_DATA/.zcompdump
 
 # Cleanup variables
 unset loaded_libraries
-unset system
 unset plugins
 unset ZSHCONFIG_DATA
 unset ZSHCONFIG_LIB
