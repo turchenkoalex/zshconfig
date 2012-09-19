@@ -1,3 +1,5 @@
+require_library 'system'
+
 # TODO: Explain what some of this does..
 
 bindkey -e
@@ -30,8 +32,10 @@ bindkey "^[[1;5D" backward-word
 
 bindkey '^[[Z' reverse-menu-complete
 
-# Make the delete key (or Fn + Delete on the Mac) work instead of outputting a ~
-bindkey '^?' backward-delete-char
-bindkey "^[[3~" delete-char
-bindkey "^[3;5~" delete-char
-bindkey "\e[3~" delete-char
+if [[ is_osx ]]; then
+	# Make the delete key (or Fn + Delete on the Mac) work instead of outputting a ~
+	bindkey '^?' backward-delete-char
+	bindkey "^[[3~" delete-char
+	bindkey "^[3;5~" delete-char
+	bindkey "\e[3~" delete-char
+fi

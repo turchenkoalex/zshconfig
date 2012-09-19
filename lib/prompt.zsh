@@ -2,7 +2,7 @@ require_library 'spectrum'
 
 local pscolor="green"
 if [ $UID -eq 0 ] ; then
-	local pscolor="red"
+	pscolor="red"
 fi
 
 PROMPT="%{$fg_bold[$pscolor]%}[%{$fg_no_bold[$pscolor]%}%~%{$fg_bold[$pscolor]%}] %{$reset_color%}"

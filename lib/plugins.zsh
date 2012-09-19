@@ -6,9 +6,8 @@ is_linux && plugins=($plugins linux)
 is_freebsd && plugins=($plugins freebsd)
 
 is_plugin() {
-	local base_dir=$1
-	local name=$2
-	test -d $base_dir/$name && (test -f $base_dir/$name/plugin.zsh || test -f $base_dir/$name/_*)
+	local plugin_dir=$1/$2
+	test -d $plugin_dir && (test -f $plugin_dir/plugin.zsh || test -f $plugin_dir/_*)
 }
 
 for plugin ($plugins); do

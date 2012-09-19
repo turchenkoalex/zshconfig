@@ -4,7 +4,7 @@ function is_osx() {
 	[[ `uname` == "Darwin" ]]
 }
 
-is_freebsd() {
+function is_freebsd() {
 	[[ `uname` == "FreeBSD" ]]
 }
 
