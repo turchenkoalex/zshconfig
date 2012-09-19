@@ -1,7 +1,14 @@
-zshconfig_version="1.0"
-
 [[ "$zshconfig_path" == "" ]] && zshconfig_path=$ZSHCONFIG
 [[ "$zshconfig_update_file" == "" ]] && zshconfig_update_file=$ZSHCONFIG_DATA/.zshconfig_update
+
+zshconfig_git_version() {
+	local current_path=`pwd`
+	local version=`git rev-parse HEAD`
+	cd $current_path
+	return $version
+}
+
+zshconfig_version="1.0 $(zshconfig_git_version)"
 
 function zshconfig_current_epoch() {
 	echo $(($(date +%s) / 60 / 60 / 24))
