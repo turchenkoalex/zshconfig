@@ -1,8 +1,9 @@
 require_library 'system'
 
 # List direcory contents
-is_osx && alias ls="ls -GkFh"
-is_freebsd && alias ls="ls -GkFh"
+is_osx || is_freebsd && function {
+	alias ls="ls -GkFh"
+}
 is_linux && alias ls="ls -kFh --color=auto"
 
 alias la="ls -a"

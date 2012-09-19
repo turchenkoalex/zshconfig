@@ -32,7 +32,7 @@ bindkey "^[[1;5D" backward-word
 
 bindkey '^[[Z' reverse-menu-complete
 
-is_osx && function {
+is_osx || is_freebsd && function {
 	# Make the delete key (or Fn + Delete on the Mac) work instead of outputting a ~
 	bindkey '^?' backward-delete-char
 	bindkey "^[[3~" delete-char

@@ -5,7 +5,7 @@ is_osx && plugins=($plugins osx)
 is_linux && plugins=($plugins linux)
 is_freebsd && plugins=($plugins freebsd)
 
-is_plugin() {
+function is_plugin() {
 	local plugin_dir=$1/$2
 	test -d $plugin_dir && (test -f $plugin_dir/plugin.zsh || test -f $plugin_dir/_*)
 }

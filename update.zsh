@@ -19,7 +19,7 @@ function zshconfig_save_update_file() {
 }
 
 function zshconfig_update() {
-	echo "$fg_bold[green]Update config: current version $zshconfig_version$reset_color"
+	echo "%{\033[1;32m%}Update zshconfig: current version $zshconfig_version%{\033[0m%}"
 	local current_path=`pwd`
 	cd $zshconfig_path
 	if git pull --quiet origin master
@@ -28,12 +28,12 @@ function zshconfig_update() {
 		local prev_version=$(print $zshconfig_version)
 		source $zshconfig_path/update.zsh
 		if [[ $prev_version == $zshconfig_version ]]; then
-			echo "$fg_bold[green]Already up to date$reset_color"
+			echo "{\033[1;32m%}Already up to date%{\033[0m%}"
 		else
-			echo "$fg_bold[green]ZSH Config updated success: installed version $zshconfig_version$reset_color"
+			echo "{\033[1;32m%}Zshconfig updated success: installed version $zshconfig_version%{\033[0m%}"
 		fi
 	else
-		echo "$fg_bold[red]Error occured while update ZSH Config$reset_color"
+		echo "{\033[1;31m%}Error occured while updating zshconfig%{\033[0m%}"
 	fi
 	cd $current_path
 }
