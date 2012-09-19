@@ -22,11 +22,16 @@ function zshconfig_update() {
 	echo "$fg_bold[green]Update config: current version $zshconfig_version$reset_color"
 	local current_path=`pwd`
 	cd $zshconfig_path
-	if git pull origin master
+	if git pull --quiet origin master
 	then
 		zshconfig_save_update_file
+		local prev_version=$(print $zshconfig_version)
 		source $zshconfig_path/update.zsh
-		echo "$fg_bold[green]ZSH Config updated success: installed version $zshconfig_version$reset_color"
+		if [[ $prev_version == $zshconfig_version ]]; then
+			echo "$fg_bold[green]Already up to date$reset_color"
+		else
+			echo "$fg_bold[green]ZSH Config updated success: installed version $zshconfig_version$reset_color"
+		fi
 	else
 		echo "$fg_bold[red]Error occured while update ZSH Config$reset_color"
 	fi
