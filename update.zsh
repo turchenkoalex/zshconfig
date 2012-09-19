@@ -3,6 +3,7 @@
 
 zshconfig_git_version() {
 	local current_path=`pwd`
+	cd $zshconfig_path
 	local version=`git rev-parse HEAD`
 	cd $current_path
 	return $version
