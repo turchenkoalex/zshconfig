@@ -1,7 +1,7 @@
 [[ "$zshconfig_path" == "" ]] && zshconfig_path=$ZSHCONFIG
 [[ "$zshconfig_update_file" == "" ]] && zshconfig_update_file=$ZSHCONFIG_DATA/.zshconfig_update
 
-zshconfig_git_version() {
+function zshconfig_git_version() {
 	local prev_path=`pwd`
 	cd $zshconfig_path
 	print `git rev-parse HEAD`
