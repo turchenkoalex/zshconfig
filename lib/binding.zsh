@@ -10,11 +10,8 @@ bindkey "^[[5~" up-line-or-history
 bindkey "^[[6~" down-line-or-history
 
 # make search up and down work, so partially type and hit up/down to find relevant stuff
-bindkey '^[[A' up-line-or-search
-bindkey '^[[B' down-line-or-search
-
-#bindkey '\e[A' history-search-backward
-#bindkey '\e[B' history-search-forward
+bindkey '^[[A' history-beginning-search-backward
+bindkey '^[[B' history-beginning-search-forward
 
 ## file rename magick
 bindkey "^[m" copy-prev-shell-word
