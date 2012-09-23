@@ -18,3 +18,10 @@ for plugin ($plugins); do
 	  fi
 	fi
 done
+unset plugin
+
+function plugins_lib_cleanup() {
+	unset -f is_plugin
+}
+
+oncleanup "plugins_lib_cleanup"

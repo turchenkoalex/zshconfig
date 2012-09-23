@@ -39,7 +39,7 @@ function zshconfig_update() {
 	cd $current_path
 }
 
-function zshconfig_check_update() {
+function zshconfig_update_check() {
 	if [ -f $zshconfig_update_file ]; then
 		source $zshconfig_update_file
 		if [[ -z "$LAST_EPOCH" ]]; then
@@ -55,4 +55,4 @@ function zshconfig_check_update() {
 	fi
 }
 
-zshconfig_check_update
+zshconfig_update_check
