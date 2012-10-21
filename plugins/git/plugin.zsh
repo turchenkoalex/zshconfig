@@ -14,9 +14,11 @@ function parse_git_dirty() {
 		STATUS="%{$fg[yellow]%}"
 		if $(echo "$INDEX" | grep '^?? ' &> /dev/null); then
 			STATUS="%{$fg[red]%}"
-		elif $(echo "$INDEX" | grep '^[^ ]M' &> /dev/null); then
+		elif $(echo "$INDEX" | grep '^[^ ][MD]' &> /dev/null); then
 			STATUS="%{$fg[red]%}"
-		elif $(echo "$INDEX" | grep '^[^ ]D ' &> /dev/null); then
+		elif $(echo "$INDEX" | grep '^ M' &> /dev/null); then
+			STATUS="%{$fg[red]%}"
+		elif $(echo "$INDEX" | grep '^ D' &> /dev/null); then
 			STATUS="%{$fg[red]%}"
 		fi
 	fi

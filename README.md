@@ -1,7 +1,8 @@
 ZSH config
-=========
+===
+---
 
-ZSH Config install
+**ZSH Config install**
 
 git clone git://github.com/TurchenkoAlex/zshconfig.git ~/.zshconfig
 
