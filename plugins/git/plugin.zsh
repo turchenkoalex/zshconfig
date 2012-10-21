@@ -12,13 +12,7 @@ function parse_git_dirty() {
 	INDEX=$(git status -s 2> /dev/null)
 	if [[ $INDEX != "" ]]; then
 		STATUS="%{$fg[yellow]%}"
-		if $(echo "$INDEX" | grep '^?? ' &> /dev/null); then
-			STATUS="%{$fg[red]%}"
-		elif $(echo "$INDEX" | grep '^[^ ][MD]' &> /dev/null); then
-			STATUS="%{$fg[red]%}"
-		elif $(echo "$INDEX" | grep '^ M' &> /dev/null); then
-			STATUS="%{$fg[red]%}"
-		elif $(echo "$INDEX" | grep '^ D' &> /dev/null); then
+		if $(echo "$INDEX" | grep -i -e '^?? ' -e '^[^ ][MD]' -e '^ M' -e '^ D' &> /dev/null); then
 			STATUS="%{$fg[red]%}"
 		fi
 	fi
