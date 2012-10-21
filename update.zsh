@@ -8,7 +8,7 @@ function zshconfig_git_version() {
 	cd $prev_path
 }
 
-zshconfig_version="1.1 (`zshconfig_git_version`)"
+zshconfig_version="1.2 (`zshconfig_git_version`)"
 
 function zshconfig_current_epoch() {
 	echo $(($(date +%s) / 60 / 60 / 24))
