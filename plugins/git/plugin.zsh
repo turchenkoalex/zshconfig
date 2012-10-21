@@ -7,11 +7,18 @@ function git_prompt_info() {
 # Checks if working tree is dirty
 function parse_git_dirty() {
 	local STATUS
+	local INDEX
 	STATUS="%{$fg[green]%}"
-	if [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]]; then
-		STATUS="%{$fg[red]%}"
-	elif [[ $(git diff --cached --shortstat 2> /dev/null | tail -n1) != "" ]]; then
+	INDEX=$(git status -s 2> /dev/null)
+	if [[ $INDEX != "" ]]; then
 		STATUS="%{$fg[yellow]%}"
+		if $(echo "$INDEX" | grep '^?? ' &> /dev/null); then
+			STATUS="%{$fg[red]%}"
+		elif $(echo "$INDEX" | grep '^[^ ]M' &> /dev/null); then
+			STATUS="%{$fg[red]%}"
+		elif $(echo "$INDEX" | grep '^[^ ]D ' &> /dev/null); then
+			STATUS="%{$fg[red]%}"
+		fi
 	fi
 	echo $STATUS
 }
