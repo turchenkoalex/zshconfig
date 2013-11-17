@@ -17,7 +17,7 @@ function untag {
 
 function zshconfig_plugin_tag_load() {
   if test -n "$(find $zshconfig_plugin_tag_path -maxdepth 1 -name '*.tag' -print -quit)"; then
-    source $zshconfig_plugin_tag_path/*.tag
+    for i in source $zshconfig_plugin_tag_path/*.tag do; source $i
   fi
 }
 
